@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vive Aprendiendo +</title>
+    <style>
+        /* Estilos básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #2e3b4e;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        header .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #f7c04a;
+            text-align: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        /* Sección de Bienvenida */
+        .welcome-section {
+            text-align: center;
+            padding: 3em 1em;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .welcome-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+
+        .welcome-section .btn {
+            background-color: #f7c04a;
+            color: white;
+            padding: 0.5em 1.5em;
+            border: none;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 2em;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 0.5em;
+        }
+
+        /* Sección Nosotros */
+        #nosotros p, #nosotros ul {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        #nosotros h3 {
+            color: #f7c04a;
+        }
+
+        /* Sección Cursos */
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .course-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1.5em;
+            max-width: 250px;
+            text-align: center;
+        }
+
+        .course-item h3 {
+            color: #007bff;
+            font-size: 1.3em;
+        }
+
+        .course-item p {
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .course-item .btn {
+            display: inline-block;
+            padding: 0.5em 1em;
+            background-color: #f7c04a;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Testimonios */
+        .testimonial-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 1.5em;
+            margin: 1em auto;
+            max-width: 600px;
+            text-align: center;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        /* Contáctanos */
+        form label {
+            display: block;
+            margin: 0.5em 0 0.2em;
+            font-weight: bold;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 0.8em;
+            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Pie de Página */
+        footer {
+            background-color: #2e3b4e;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        footer a {
+            color: #f7c04a;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .course-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Estilos para la sección Nosotros */
+        .nosotros-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nosotros-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .nosotros-item h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .nosotros-item.valores ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .nosotros-item.valores li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nosotros-item.valores li span {
+            margin-right: 10px;
+        }
+
+        /* Estilos para detalles de cursos */
+        .curso-detalle {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <img src="assets/logos/logo.png" alt="Logo Vive Aprendiendo +">
+        <div class="logo">Vive Aprendiendo +</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección de Bienvenida -->
+    <section id="inicio" class="welcome-section">
+        <h1>Bienvenido a Vive Aprendiendo +</h1>
+        <p>Impulsa tu conocimiento con nuestros cursos informales, accesibles y prácticos.</p>
+        <a href="#cursos" class="btn">Explorar Cursos</a>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros">
+        <h2>Nosotros</h2>
+        <div class="nosotros-container">
+            <div class="nosotros-item">
+                <h3>Misión</h3>
+                <p>Empoderar a profesionales y estudiantes mediante educación informal de calidad, proporcionando herramientas prácticas y accesibles que impulsen su desarrollo personal y profesional en un entorno de aprendizaje inclusivo y dinámico.</p>
+            </div>
+            <div class="nosotros-item">
+                <h3>Visión</h3>
+                <p>Ser la plataforma líder en educación informal en América Latina, reconocida por transformar vidas a través de conocimientos prácticos, innovadores y adaptados a las necesidades del mercado laboral actual.</p>
+            </div>
+            <div class="nosotros-item valores">
+                <h3>Valores</h3>
+                <ul>
+                    <li>🌟 Accesibilidad: Educación al alcance de todos</li>
+                    <li>🚀 Innovación: Métodos de aprendizaje modernos</li>
+                    <li>✨ Calidad: Contenidos rigurosos y actualizados</li>
+                    <li>🤝 Inclusión: Respeto a la diversidad</li>
+                    <li>💡 Empoderamiento: Desarrollo integral</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Cursos -->
+    <section id="cursos">
+        <h2>Nuestros Cursos</h2>
+        <div class="course-list">
+            <div class="course-item">
+                <img src="assets/images/curso-gestion-documental.jpg" alt="Fundamentos de Gestión Documental">
+                <h3>Fundamentos de Gestión Documental</h3>
+                <p>Conoce las bases para la organización y administración de documentos.</p>
+                <div class="curso-detalle">
+                    <h4>Detalles del Curso</h4>
+                    <ul>
+                        <li>Duración: 40 horas</li>
+                        <li>Modalidad: Online</li>
+                        <li>Certificación: Sí</li>
+                        <li>Incluye: 
+                            <ul>
+                                <li>5 módulos interactivos</li>
+                                <li>Casos prácticos</li>
+                                <li>Acceso a recursos adicionales</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Dirigido a: Administrativos, archivistas, estudiantes de gestión documental</p>
+                    <p>Inversión: $150.000 COP</p>
+                </div>
+                <a href="#" class="btn" onclick="mostrarDetalles(this)">Ver Detalles</a>
+            </div>
+            <div class="course-item">
+                <img src="assets/images/curso-ofimatica-basica.jpg" alt="Ofimática Básica">
+                <h3>Ofimática Básica</h3>
+                <p>Aprende a utilizar las herramientas básicas de ofimática para optimizar tu trabajo.</p>
+                <div class="curso-detalle">
+                    <h4>Detalles del Curso</h4>
+                    <ul>
+                        <li>Duración: 30 horas</li>
+                        <li>Modalidad: Online</li>
+                        <li>Certificación: Sí</li>
+                        <li>Incluye: 
+                            <ul>
+                                <li>4 módulos interactivos</li>
+                                <li>Casos prácticos</li>
+                                <li>Acceso a recursos adicionales</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Dirigido a: Empleados administrativos, estudiantes de ofimática</p>
+                    <p>Inversión: $120.000 COP</p>
+                </div>
+                <a href="#" class="btn" onclick="mostrarDetalles(this)">Ver Detalles</a>
+            </div>
+            <div class="course-item">
+                <img src="assets/images/curso-resolucion-conflictos.jpg" alt="Resolución de Conflictos">
+                <h3>Resolución de Conflictos</h3>
+                <p>Descubre estrategias para resolver conflictos de manera efectiva.</p>
+                <div class="curso-detalle">
+                    <h4>Detalles del Curso</h4>
+                    <ul>
+                        <li>Duración: 20 horas</li>
+                        <li>Modalidad: Online</li>
+                        <li>Certificación: Sí</li>
+                        <li>Incluye: 
+                            <ul>
+                                <li>3 módulos interactivos</li>
+                                <li>Casos prácticos</li>
+                                <li>Acceso a recursos adicionales</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Dirigido a: Líderes, gerentes, estudiantes de resolución de conflictos</p>
+                    <p>Inversión: $100.000 COP</p>
+                </div>
+                <a href="#" class="btn" onclick="mostrarDetalles(this)">Ver Detalles</a>
+            </div>
+            <div class="course-item">
+                <img src="assets/images/curso-atencion-al-usuario.jpg" alt="Atención al Usuario en el Sector Público">
+                <h3>Atención al Usuario en el Sector Público</h3>
+                <p>Desarrolla habilidades para mejorar la atención en servicios públicos.</p>
+                <div class="curso-detalle">
+                    <h4>Detalles del Curso</h4>
+                    <ul>
+                        <li>Duración: 30 horas</li>
+                        <li>Modalidad: Online</li>
+                        <li>Certificación: Sí</li>
+                        <li>Incluye: 
+                            <ul>
+                                <li>4 módulos interactivos</li>
+                                <li>Casos prácticos</li>
+                                <li>Acceso a recursos adicionales</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Dirigido a: Empleados públicos, estudiantes de atención al cliente</p>
+                    <p>Inversión: $120.000 COP</p>
+                </div>
+                <a href="#" class="btn" onclick="mostrarDetalles(this)">Ver Detalles</a>
+            </div>
+            <div class="course-item">
+                <img src="assets/images/curso-redaccion-de-documentos.jpg" alt="Redacción de Documentos">
+                <h3>Redacción de Documentos</h3>
+                <p>Aprende técnicas de redacción profesional y clara.</p>
+                <div class="curso-detalle">
+                    <h4>Detalles del Curso</h4>
+                    <ul>
+                        <li>Duración: 20 horas</li>
+                        <li>Modalidad: Online</li>
+                        <li>Certificación: Sí</li>
+                        <li>Incluye: 
+                            <ul>
+                                <li>3 módulos interactivos</li>
+                                <li>Casos prácticos</li>
+                                <li>Acceso a recursos adicionales</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Dirigido a: Empleados administrativos, estudiantes de redacción</p>
+                    <p>Inversión: $100.000 COP</p>
+                </div>
+                <a href="#" class="btn" onclick="mostrarDetalles(this)">Ver Detalles</a>
+            </div>
+            <div class="course-item">
+                <img src="assets/images/curso-sstt.jpg" alt="SSTT: Salud en el Trabajo">
+                <h3>SSTT: Salud en el Trabajo</h3>
+                <p>Conoce las mejores prácticas para la seguridad y salud en el trabajo.</p>
+                <div class="curso-detalle">
+                    <h4>Detalles del Curso</h4>
+                    <ul>
+                        <li>Duración: 30 horas</li>
+                        <li>Modalidad: Online</li>
+                        <li>Certificación: Sí</li>
+                        <li>Incluye: 
+                            <ul>
+                                <li>4 módulos interactivos</li>
+                                <li>Casos prácticos</li>
+                                <li>Acceso a recursos adicionales</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Dirigido a: Empleados, estudiantes de SSTT</p>
+                    <p>Inversión: $120.000 COP</p>
+                </div>
+                <a href="#" class="btn" onclick="mostrarDetalles(this)">Ver Detalles</a>
+            </div>
+            <div class="course-item">
+                <img src="assets/images/curso-derecho-disciplinario.jpg" alt="Conceptos Básicos de Derecho Disciplinario">
+                <h3>Conceptos Básicos de Derecho Disciplinario</h3>
+                <p>Fundamentos legales para la práctica del derecho disciplinario.</p>
+                <div class="curso-detalle">
+                    <h4>Detalles del Curso</h4>
+                    <ul>
+                        <li>Duración: 20 horas</li>
+                        <li>Modalidad: Online</li>
+                        <li>Certificación: Sí</li>
+                        <li>Incluye: 
+                            <ul>
+                                <li>3 módulos interactivos</li>
+                                <li>Casos prácticos</li>
+                                <li>Acceso a recursos adicionales</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Dirigido a: Abogados, estudiantes de derecho</p>
+                    <p>Inversión: $100.000 COP</p>
+                </div>
+                <a href="#" class="btn" onclick="mostrarDetalles(this)">Ver Detalles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contáctanos -->
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <p>Teléfono: 3132249535</p>
+        <p>Email: viveaprendiendo@gmail.com</p>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2023 Vive Aprendiendo +. Todos los derechos reservados.</p>
+        <a href="#inicio">Inicio</a> | 
+        <a href="#nosotros">Nosotros</a> | 
+        <a href="#cursos">Cursos</a> | 
+        <a href="#testimonios">Testimonios</a> | 
+        <a href="#contacto">Contáctanos</a>
+    </footer>
+
+    <script>
+        function mostrarDetalles(elemento) {
+            const detalles = elemento.previousElementSibling;
+            detalles.style.display = detalles.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
